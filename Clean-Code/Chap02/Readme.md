@@ -12,15 +12,15 @@
 수행 기능은?
 사용 방법은?
 따로 주석이 필요하다면 의도를 분명히 드러내지 못했다는 말이다.
-
+```java
 public List<int[]> getThem() {
-List<int[]> list1 = new ArrayList<int[]>();
-for(int[] x : theList)
-  if(x[0]==4)
-    list1.add(x);
- return list1;
+  List<int[]> list1 = new ArrayList<int[]>();
+  for(int[] x : theList)
+    if(x[0]==4)
+      list1.add(x);
+  return list1;
 }
-
+```
 코드가 하는 일을 짐작하기 어렵다. 
 why? 복잡한 문장은 없다.
 
@@ -35,6 +35,7 @@ why? 복잡한 문장은 없다.
 위 코드 샘플엔 이와 같은 정보가 드러나지 않는다. 하지만 정보 제공은 충분히 가능했었다.
 
 각 개념에 이름만 붙여도 코드가 상당히 나아진다.
+```java
 public List<int[]> getFlaggedCells() {
   List<int[]> flaggedCells = new ArrayList<int[]>();
   for(int[] cell : gameBoard)
@@ -42,13 +43,13 @@ public List<int[]> getFlaggedCells() {
       flaggedCells.add(cell);
   return flaggedCells;
 }
-
+```
 단순성은 변하지 않았다. 연산자 수와 상수 수는 앞의 예와 같다.
 그런데도 코드는 더욱 명확해졌다.
 한 걸음 더 나아가, int 배열을 사용하는 대신, 칸을 간단한 클래스로 만들어도되겠다.
 isFlagged라는 좀 더 명시적인 함수를 사용해 FLAGGED라는 상수를 감춰도 좋겠다.
 새롭게 개선한 결과는 다음과 같다.
-
+```java
 public List<Cell> getFlaggedCells() {
   List<Cell> flaggedCells = new ArrayList<Cell>();
   for(Cell cell : gameBoard)
@@ -56,6 +57,7 @@ public List<Cell> getFlaggedCells() {
       flaggedCells.add(cell);
   return flaggedCells;
 }
+```
 단순히 이름만 고쳤는데도 함수가 하는 일이 이해하기 쉬워졌다. 바로 이것이 좋은 이름이 주는 위력이다.
 
 ### 그릇된 정보를 피해라
